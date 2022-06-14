@@ -1,5 +1,7 @@
 package com.example.thread.base;
 
+import java.util.concurrent.locks.LockSupport;
+
 /**
  * @Description : 线程中断
  * @Author : young
@@ -32,6 +34,7 @@ public class ThreadInterrupt {
                     try {
                         System.out.println("t2 sleep...");
                         Thread.sleep(2000);
+                        System.out.println("sss"); // 中断后抛出异常，不会打印
                     } catch (InterruptedException e) {
                         System.out.println("Interrupted when sleep");
                         System.out.println(Thread.currentThread().isInterrupted());
@@ -63,13 +66,28 @@ public class ThreadInterrupt {
             }
         };
 
-        t1.start();
-        t2.start();
-        t3.start();
+        Thread t4 = new Thread("t4") {
+            @Override
+            public void run() {
+                System.out.println("t4 park...");
+                LockSupport.park();
+                System.out.println("t4 unpark...");
+                System.out.println("t4 interrupted status:" + Thread.currentThread().isInterrupted());
+                System.out.println("t4 park again...");
+                LockSupport.park(); //不会再生效
+                System.out.println("t4 unpark again...");
+            }
+        };
+
+        //t1.start();
+        //t2.start();
+        //t3.start();
+        t4.start();
         Thread.sleep(1000);
-        t1.interrupt();
-        t2.interrupt();
-        t3.interrupt();
+        //t1.interrupt();
+        //t2.interrupt();
+        //t3.interrupt();
+        t4.interrupt();
 
     }
 }
