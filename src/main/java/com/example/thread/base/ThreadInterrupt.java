@@ -33,7 +33,7 @@ public class ThreadInterrupt {
                     // 在sleep的时候会抛出中断异常，此时会被捕获，但中断标志位会被清除
                     try {
                         System.out.println("t2 sleep...");
-                        Thread.sleep(2000);
+                        Thread.sleep(5000);
                         System.out.println("sss"); // 中断后抛出异常，不会打印
                     } catch (InterruptedException e) {
                         System.out.println("Interrupted when sleep");
@@ -80,14 +80,14 @@ public class ThreadInterrupt {
         };
 
         //t1.start();
-        //t2.start();
+        t2.start();
         //t3.start();
-        t4.start();
+        //t4.start();
         Thread.sleep(1000);
         //t1.interrupt();
-        //t2.interrupt();
+        t2.interrupt();
         //t3.interrupt();
-        t4.interrupt();
+        //t4.interrupt();
 
     }
 }
