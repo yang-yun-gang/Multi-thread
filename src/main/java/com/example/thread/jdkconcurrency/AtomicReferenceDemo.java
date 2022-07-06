@@ -16,7 +16,7 @@ public class AtomicReferenceDemo {
         User user = new User("jojo", 17);
         atomicUserRef.set(user);
         User updateUser = new User("kaka", 20);
-        atomicUserRef.compareAndSet(user, updateUser);
+        atomicUserRef.compareAndSet(user, updateUser); // 比较对象地址
         System.out.println(atomicUserRef.get().getName() + ": " + atomicUserRef.get().getOld());
     }
 }
