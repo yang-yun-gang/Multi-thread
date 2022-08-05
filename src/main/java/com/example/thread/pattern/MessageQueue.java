@@ -61,7 +61,7 @@ public class MessageQueue {
         // 模拟生产者
         for (int i = 0; i < 3; i++) {
             int id = i;
-            new Thread(() -> queue.put(new Msg(id, "值"+id)), "生产者" + i).start();
+            new Thread(() -> queue.put(new Msg(id, "值" + id)), "生产者" + i).start();
         }
 
         // 模拟消费者

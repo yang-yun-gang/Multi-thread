@@ -12,6 +12,6 @@ public class FinalReader {
     }
 }
 
-class TestFinal{
+class TestFinal {
     static final int A = 10;
 }

@@ -6,7 +6,7 @@ package com.example.thread.pattern;
  * @Date : 2022-06-25 10:52
  * @Version : 1.0
  **/
-public class People implements Runnable{
+public class People implements Runnable {
 
     @Override
     public void run() {

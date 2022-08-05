@@ -30,7 +30,7 @@ public class TestPool {
         }));
         for (int i = 0; i < 15; i++) {
             int j = i;
-            threadPool.execute(()-> {
+            threadPool.execute(() -> {
                 try {
                     Thread.sleep(100000);
                 } catch (InterruptedException e) {
@@ -93,7 +93,7 @@ class ThreadPool {
         }
     }
 
-    class Worker extends Thread{
+    class Worker extends Thread {
         private Runnable task;
 
         public Worker(Runnable task) {
@@ -152,7 +152,7 @@ class BlockingQueue<T> {
                 try {
                     // 返回的是剩余等待时间
                     if (nanos <= 0) {
-                        return  null;
+                        return null;
                     }
                     nanos = emptyWaitSet.awaitNanos(nanos);
                 } catch (InterruptedException e) {

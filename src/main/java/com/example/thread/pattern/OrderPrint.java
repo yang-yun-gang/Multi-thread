@@ -20,19 +20,19 @@ public class OrderPrint {
     }
 
     /**
-      * @Description: wait/notify
-      * @Author: young
-      * @Date: 2022-06-29 14:34
-      * @return: void
-      * @Version: 1.0
-      **/
+     * @Description: wait/notify
+     * @Author: young
+     * @Date: 2022-06-29 14:34
+     * @return: void
+     * @Version: 1.0
+     **/
     private static void method1() {
         Thread t1 = new Thread("t1") {
             @Override
             public void run() {
                 synchronized (o) {
                     try {
-                        while(!runFlag) {
+                        while (!runFlag) {
                             o.wait();
                             System.out.println(1);
                         }
@@ -59,12 +59,12 @@ public class OrderPrint {
     }
 
     /**
-      * @Description: park
-      * @Author: young
-      * @Date: 2022-06-29 14:34
-      * @return: void
-      * @Version: 1.0
-      **/
+     * @Description: park
+     * @Author: young
+     * @Date: 2022-06-29 14:34
+     * @return: void
+     * @Version: 1.0
+     **/
     private static void method2() {
         Thread t1 = new Thread("t1") {
             @Override

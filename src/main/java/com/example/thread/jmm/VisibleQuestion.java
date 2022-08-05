@@ -12,7 +12,7 @@ public class VisibleQuestion {
     static volatile boolean flag = true;
 
     public static void main(String[] args) throws InterruptedException {
-        Thread t = new Thread(()->{
+        Thread t = new Thread(() -> {
             while (flag) {
                 //..
             }

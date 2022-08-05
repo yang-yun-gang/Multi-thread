@@ -18,7 +18,7 @@ public class SynchronizedObj {
         }*/
 
         public synchronized void increment() {
-                cnt++;
+            cnt++;
         }
 
         public void decrement() {

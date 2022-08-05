@@ -39,7 +39,7 @@ public class ThreadPoolExecutorDemo {
                 }
         ));
 
-        futures.forEach(f-> {
+        futures.forEach(f -> {
             try {
                 System.out.println(f.get());
             } catch (InterruptedException e) {

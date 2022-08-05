@@ -7,7 +7,8 @@ package com.example.thread.pattern;
 public class Singleton {
     private volatile static Singleton uniqueInstance;
 
-    private Singleton() {}
+    private Singleton() {
+    }
 
     //同步方法 缺点是每次都要同步 拖垮性能
     /*public static synchronized Singleton getInstance() {
@@ -19,8 +20,8 @@ public class Singleton {
 
     //同步代码块 双重检查加锁
     public static Singleton getInstance() {
-        if (uniqueInstance == null){
-            synchronized (Singleton.class){
+        if (uniqueInstance == null) {
+            synchronized (Singleton.class) {
                 if (uniqueInstance == null)
                     uniqueInstance = new Singleton();
             }

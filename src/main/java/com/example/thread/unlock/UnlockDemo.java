@@ -26,14 +26,14 @@ interface CountGame {
     static void game(CountGame game) {
         List<Thread> list = new ArrayList<>(1000);
         for (int i = 0; i < 1000; i++) {
-            list.add(new Thread(()->game.decrement(10), "t" + i));
+            list.add(new Thread(() -> game.decrement(10), "t" + i));
         }
 
         long start = System.nanoTime();
         // 启动线程
         list.forEach(Thread::start);
         // 等待线程执行结束
-        list.forEach(t->{
+        list.forEach(t -> {
             try {
                 t.join();
             } catch (InterruptedException e) {
@@ -41,12 +41,12 @@ interface CountGame {
             }
         });
         long end = System.nanoTime();
-        System.out.println(game.getCnt() + " cost:" + (end - start)/1000_000 + "ms");
+        System.out.println(game.getCnt() + " cost:" + (end - start) / 1000_000 + "ms");
     }
 }
 
 // 使用锁的方式保证原子性
-class CountGameForLock implements CountGame{
+class CountGameForLock implements CountGame {
     private int cnt;
 
     public CountGameForLock(int cnt) {
@@ -67,7 +67,7 @@ class CountGameForLock implements CountGame{
 }
 
 // 使用cas保证原子性
-class CountGameForUnlock implements CountGame{
+class CountGameForUnlock implements CountGame {
     private AtomicInteger cnt;
 
     public CountGameForUnlock(Integer cnt) {

@@ -18,7 +18,7 @@ public class AtomicIntegerDemo {
         a.getAndAdd(5);
         a.addAndGet(5);
         // 读取到 设置值
-        a.updateAndGet(x->x*10);
-        a.getAndUpdate(x->x*10);
+        a.updateAndGet(x -> x * 10);
+        a.getAndUpdate(x -> x * 10);
     }
 }

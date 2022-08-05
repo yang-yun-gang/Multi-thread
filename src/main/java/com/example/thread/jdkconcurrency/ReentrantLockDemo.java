@@ -31,12 +31,12 @@ public class ReentrantLockDemo {
     }
 
     /**
-      * @Description: 中断阻塞
-      * @Author: young
-      * @Date: 2022-06-28 18:00
-      * @return: void
-      * @Version: 1.0
-      **/
+     * @Description: 中断阻塞
+     * @Author: young
+     * @Date: 2022-06-28 18:00
+     * @return: void
+     * @Version: 1.0
+     **/
     private static void interruptTest() {
         Thread t1 = new Thread("t1") {
             @Override
@@ -64,12 +64,12 @@ public class ReentrantLockDemo {
     }
 
     /**
-      * @Description: 锁超时
-      * @Author: young
-      * @Date: 2022-06-28 18:08
-      * @return: void
-      * @Version: 1.0
-      **/
+     * @Description: 锁超时
+     * @Author: young
+     * @Date: 2022-06-28 18:08
+     * @return: void
+     * @Version: 1.0
+     **/
     private static void tryLockTest() {
         Thread t1 = new Thread("t1") {
             @Override
@@ -96,12 +96,12 @@ public class ReentrantLockDemo {
     }
 
     /**
-      * @Description: 条件变量
-      * @Author: young
-      * @Date: 2022-06-28 18:41
-      * @return: void
-      * @Version: 1.0
-      **/
+     * @Description: 条件变量
+     * @Author: young
+     * @Date: 2022-06-28 18:41
+     * @return: void
+     * @Version: 1.0
+     **/
     private static void conditionTest() {
 
         Thread t1 = new Thread("t1") {

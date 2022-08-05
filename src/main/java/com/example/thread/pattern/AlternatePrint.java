@@ -27,12 +27,12 @@ public class AlternatePrint {
     }
 
     /**
-      * @Description: wait/notify
-      * @Author: young
-      * @Date: 2022-06-29 15:01
-      * @return: void
-      * @Version: 1.0
-      **/
+     * @Description: wait/notify
+     * @Author: young
+     * @Date: 2022-06-29 15:01
+     * @return: void
+     * @Version: 1.0
+     **/
     private static void method1() {
         WaitNotify waitNotify = new WaitNotify(1, 5);
         Thread t1 = new Thread("t1") {
@@ -60,12 +60,12 @@ public class AlternatePrint {
     }
 
     /**
-      * @Description: ReentrantLock
-      * @Author: young
-      * @Date: 2022-06-29 17:38
-      * @return: void
-      * @Version: 1.0
-      **/
+     * @Description: ReentrantLock
+     * @Author: young
+     * @Date: 2022-06-29 17:38
+     * @return: void
+     * @Version: 1.0
+     **/
     private static void method2() throws InterruptedException {
 
         AwaitSignal awaitSignal = new AwaitSignal(5);
@@ -108,12 +108,12 @@ public class AlternatePrint {
     }
 
     /**
-      * @Description: LockSupport
-      * @Author: young
-      * @Date: 2022-06-30 11:53
-      * @return: void
-      * @Version: 1.0
-      **/
+     * @Description: LockSupport
+     * @Author: young
+     * @Date: 2022-06-30 11:53
+     * @return: void
+     * @Version: 1.0
+     **/
     private static void method3() {
         Park park = new Park(5);
         t1 = new Thread(() -> park.print("a", t2), "t1");
@@ -127,7 +127,7 @@ public class AlternatePrint {
     }
 }
 
-class WaitNotify{
+class WaitNotify {
     // 当前标记 1 2 3, 表示当前该那个线程执行
     private int flag;
     // 循环次数
@@ -142,7 +142,7 @@ class WaitNotify{
         for (int i = 0; i < loopNum; i++) {
             synchronized (this) {
                 // 当前标记和进入执行线程的标记不一致
-                while(waitFlag != flag) {
+                while (waitFlag != flag) {
                     try {
                         this.wait();
                     } catch (InterruptedException e) {
@@ -166,15 +166,15 @@ class AwaitSignal extends ReentrantLock {
     }
 
     /**
-      * @Description: 打印
-      * @Author: young
-      * @Date: 2022-06-29 17:33
-      * @Param str: 打印的内容
-      * @Param cur: 当前条件
-      * @Param next: 下一个条件
-      * @return: void
-      * @Version: 1.0
-      **/
+     * @Description: 打印
+     * @Author: young
+     * @Date: 2022-06-29 17:33
+     * @Param str: 打印的内容
+     * @Param cur: 当前条件
+     * @Param next: 下一个条件
+     * @return: void
+     * @Version: 1.0
+     **/
     public void print(String str, Condition cur, Condition next) {
         for (int i = 0; i < loopNum; i++) {
             lock();

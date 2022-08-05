@@ -24,7 +24,7 @@ public class ScheduledThreadPoolExecutorDemo {
         System.out.println(future.get());
 
         // 周期执行，以上个任务开始计算 总共等待2秒
-        pool.scheduleAtFixedRate(()->{
+        pool.scheduleAtFixedRate(() -> {
             System.out.println("running1");
             try {
                 TimeUnit.SECONDS.sleep(1);

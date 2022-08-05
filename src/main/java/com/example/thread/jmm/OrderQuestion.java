@@ -11,8 +11,8 @@ public class OrderQuestion {
     public static void main(String[] args) {
         Test test = new Test();
 
-        Thread t1 = new Thread(()->test.actor1(), "t1");
-        Thread t2 = new Thread(()->test.actor2(), "t2");
+        Thread t1 = new Thread(() -> test.actor1(), "t1");
+        Thread t2 = new Thread(() -> test.actor2(), "t2");
 
         t1.start();
         t2.start();
